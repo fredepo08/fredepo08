@@ -1,0 +1,9 @@
+body{
+    background-color: gray;
+    text-align: center;
+}
+
+.text{
+    font-family: sans-serif;
+    font-size: 100px;
+}

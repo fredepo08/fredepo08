@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+    <head>
+        <title>Rødt Flag</title>
+        <link rel = "icon" href = "Images/RedFlag.png" type = "image/x-icon">
+    </head>
+    <script src="admin.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <body>
+        <h1 id="main" class="text" style="color:rgb(182, 0, 0)">Admin</h1>
+        <fieldset>
+            <label for="oppe">Er flaget oppe?</label>
+            <input id="oppe" type="checkbox">
+            <br>
+            <label for="password">Kodeord</label>
+            <input id="password" type="password">
+            <br>
+            <input onclick="Upload()" type="submit">
+        </fieldset>
+        <a id="response" class="text" style="font-size: 50px"></a>
+    </body>
+</html>
