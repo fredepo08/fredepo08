@@ -44,6 +44,7 @@ function Vis(up, time){
         SetColour(0, 182, 0);
         SetText(mainName, "Vi har fri!");
         SetText(timeName, "");
+        document.getElementById("redflag").remove();
         return;
     }
     
