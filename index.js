@@ -3,6 +3,7 @@ var confetti;
 
 const mainName = "main";
 const timeName = "time";
+const adminName = "admin";
 
 function OnLoad(){
     const canvas = document.createElement('canvas');
@@ -21,7 +22,7 @@ function Check(){
       if (this.readyState == 4 && this.status == 200) {
         console.log(this.responseText);
         var json = JSON.parse(this.responseText);
-        Vis(json.up, json.checkedAt);
+        Vis(json.up, json.checkedAt, json.admin);
       }
     }
     httpRequest.open("GET", 'https://stenhusflag.azurewebsites.net/api/flag/v1/get');
@@ -39,11 +40,14 @@ function SetText(elementId, text){
     element.innerHTML = text;
 }
 
-function Vis(up, time){
+function Vis(up, time, admin){
+
+    SetText(timeName, "");
+    SetText(adminName, "");
+
     if (!CheckDate()){
         SetColour(0, 182, 0);
         SetText(mainName, "Vi har fri!");
-        SetText(timeName, "");
         document.getElementById("redflag").remove();
         return;
     }
@@ -51,6 +55,7 @@ function Vis(up, time){
     if (up){
         SetColour(182, 0, 0);
         SetText(mainName, "Det røde flag er oppe!");
+
         CreateConfetti();
         document.getElementById("noredflag").remove();
     }
@@ -59,6 +64,8 @@ function Vis(up, time){
         SetText(mainName, "Det røde flag er nede :/");
         document.getElementById("redflag").remove();
     }
+
+    SetText(adminName, `Tjekket af: ${admin.navn} ${admin.klasse}`);
     
     setInterval(function() {
         SetText(timeName, "Sidst tjekket: " + StringToDate(time) + " siden");
