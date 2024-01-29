@@ -63,6 +63,7 @@ function Vis(up, time, admin){
         SetColour(255, 255, 255);
         SetText(mainName, "Det røde flag er nede :/");
         document.getElementById("redflag").remove();
+        document.getElementById("noredflag").style.height = "219px";
     }
 
     SetText(adminName, `Tjekket af: ${admin.navn} ${admin.klasse}`);
