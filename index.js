@@ -5,7 +5,25 @@ const mainName = "main";
 const timeName = "time";
 const adminName = "admin";
 
+function CheckResize()
+{
+    const reviews = document.getElementById("reviews");
+    console.log(document.body.offsetWidth);
+    if (document.body.offsetWidth < 1085){
+        reviews.style.pointerEvents = "none";
+        reviews.style.opacity = "0";
+    }
+    else{
+        reviews.style.pointerEvents = "true";
+        reviews.style.opacity = "1";
+    }
+}
+
 function OnLoad(){
+    CheckResize();
+
+    onresize = CheckResize;
+
     const canvas = document.createElement('canvas');
     confetti = new JSConfetti(canvas);
 
@@ -58,6 +76,7 @@ function Vis(up, time, admin){
 
         CreateConfetti();
         document.getElementById("noredflag").remove();
+        document.getElementById("redflag").style.height = "219px";
     }
     else{
         SetColour(255, 255, 255);
@@ -74,13 +93,13 @@ function Vis(up, time, admin){
 }
 
 function StringToDate(time){
-    console.log(time);
+    //console.log(time);
     var ms = Date.parse(time);
     var date = new Date(ms);
     var currentDate = new Date();
     var elapsedMs = currentDate - date;
     var elapsed = FormatDate(elapsedMs);
-    console.log(elapsed);
+    //console.log(elapsed);
     return elapsed;
 }
 
