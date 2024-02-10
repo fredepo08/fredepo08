@@ -66,6 +66,7 @@ function Vis(up, time, admin){
     if (!CheckDate()){
         SetColour(0, 182, 0);
         SetText(mainName, "Vi har fri!");
+        document.getElementById("noredflag").style.height = "219px";
         document.getElementById("redflag").remove();
         return;
     }
