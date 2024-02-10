@@ -62,6 +62,7 @@ function Vis(up, time, admin){
 
     SetText(timeName, "");
     SetText(adminName, "");
+    SetText(timeName, "");
 
     if (!CheckDate()){
         SetColour(0, 182, 0);
